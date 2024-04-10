@@ -13,6 +13,14 @@ project(
 # scikit-build-core's built-in backport)
 find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 find_package(pybind11 CONFIG REQUIRED)
+find_package(pybind11 CONFIG REQUIRED)
+
+# opencv-devel needs to be installed on the target machine
+find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
+
+# Qt-devel needs to be installed on the target machine
+find_package(Qt6 REQUIRED)
+
 
 # Add a library using FindPython's tooling (pybind11 also provides a helper like
 # this)
