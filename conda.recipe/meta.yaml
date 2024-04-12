@@ -1,5 +1,5 @@
 package:
-  name: scikit_build_example
+  name: macs_io_python2
   version: 0.0.1
 
 source:
@@ -26,7 +26,7 @@ requirements:
 
 test:
   imports:
-    - scikit_build_example
+    - macs_io_python2
   requires:
     - pytest
   source_files:

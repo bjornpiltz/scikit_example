@@ -16,19 +16,20 @@ find_package(pybind11 CONFIG REQUIRED)
 find_package(pybind11 CONFIG REQUIRED)
 
 # opencv-devel needs to be installed on the target machine
-find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
+#find_package(OpenCV 4.5 REQUIRED COMPONENTS core imgproc imgcodecs)
 
 # Qt-devel needs to be installed on the target machine
-find_package(Qt6 REQUIRED)
+#find_package(Qt6 REQUIRED)
 
+find_package(macs_io REQUIRED)
 
 # Add a library using FindPython's tooling (pybind11 also provides a helper like
 # this)
 python_add_library(_core MODULE src/main.cpp WITH_SOABI)
-target_link_libraries(_core PRIVATE pybind11::headers)
+target_link_libraries(_core PRIVATE pybind11::headers macs_io)
 
 # This is passing in the version as a define just as an example
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
 # The install directory is the output (wheel) directory
-install(TARGETS _core DESTINATION scikit_build_example)
+install(TARGETS _core DESTINATION macs_io_python2)
